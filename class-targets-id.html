@@ -51,7 +51,7 @@
         $('.tabs li').click(function() {
             var theClass = $(this).attr('class');
             $('div').removeClass('active');
-            $('.tabs li').removeClass('active').css('pointer-events', 'all');;
+            $('.tabs li').removeClass('active').css('pointer-events', 'all');
             $(this).addClass('active').css('pointer-events', 'none');
             $('#'+theClass).addClass('active');
         });
