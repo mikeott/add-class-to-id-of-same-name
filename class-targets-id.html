@@ -6,32 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js?ver=1.12.4'></script>
     <title>Demo</title>
+
+    <style>
+        div {
+            display: none;
+            padding: 20px;
+            background: #f1f1f1;
+            position: absolute;
+        }
+        li.active {
+            font-weight: bold;
+        }
+        div.active {
+            display: block;
+        }
+    </style>
+
 </head>
 <body>
 
     <p>Note: Requires jQuery. Inspect the div elements to see the 'active' class being added when you click on the respective list items.</p>
     <p>For example, if you click on Ipsum, then the Ipsum div will have an 'active' class added to it.</p>
 
-    <ul>
+    <ul class="tabs">
         <li class="lorem">Item 01</li>
         <li class="ipsum">Item 02</li>
         <li class="dolor">Item 03</li>
     </ul>
 
-    <div id="lorem">
+    <div id="lorem" class="active">
+        Tab Box 01
     </div>
 
     <div id="ipsum">
+        Tab Box 02
     </div>
 
     <div id="dolor">
+        Tab Box 03
     </div>
     
     <script type="text/javascript"> 
         // Requires jQuery
-        $('li').click(function() {
+        $('.tabs li').click(function() {
             var theClass = $(this).attr('class');
-            $('#'+theClass).toggleClass('active');
+            $('div').removeClass('active');
+            $('.tabs li').removeClass('active').css('pointer-events', 'all');;
+            $(this).addClass('active').css('pointer-events', 'none');
+            $('#'+theClass).addClass('active');
         });
     </script>
 
